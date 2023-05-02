@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-
+import { FaRegCopyright} from 'react-icons/fa'
 const Footer = () => {
     return (
         <div className='text-center'>
-            <h4>this is footer</h4>
+            <p><FaRegCopyright></FaRegCopyright> copyright 2027 UIDesign.to - All rights reserved</p>
         </div>
     );
 };
