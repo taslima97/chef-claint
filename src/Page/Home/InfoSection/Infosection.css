@@ -1,0 +1,18 @@
+.extra{
+  
+   height: 200px;
+   width: 1000px;
+}
+
+.section{
+    position: relative;
+    
+}
+
+.section h2{
+    position: absolute;
+    top: 50px;
+    left: 200px;
+    color: white;
+    font-weight: bold;
+}
