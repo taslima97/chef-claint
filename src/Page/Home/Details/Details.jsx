@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button, Card, Col, Row } from 'react-bootstrap';
 import {  FaRegThumbsUp} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
@@ -19,7 +20,7 @@ const Details = ({singlechef}) => {
               <h5>Experience: {years_of_experience}</h5>
               <div><span className='me-4'>Recipes: {num_recipes}</span>
               <span className='ms-4'><FaRegThumbsUp className='text-primary ms-4 '></FaRegThumbsUp>{num_likes}</span></div>
-              <Button className='bg-warning'>view Recipes</Button>
+              <Link to={`/about/${id}`}><Button className='bg-warning'>view Recipes</Button></Link>
             </Card.Body>
           </Card>
         </Col>

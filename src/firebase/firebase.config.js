@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+console.log('firebase:', import.meta.env.VITE_PASS)
 const firebaseConfig = {
   apiKey: "AIzaSyD3N51V2rYUqgNoZGuLYFWfbVlxmsAb-Qc",
   authDomain: "chef-hunter-dce96.firebaseapp.com",
