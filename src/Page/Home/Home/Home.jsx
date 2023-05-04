@@ -13,7 +13,7 @@ const Home = () => {
     const [chef, setChef] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/chef')
+        fetch('https://chef-server-hazel.vercel.app/chef')
             .then(res => res.json())
             .then(data => setChef(data))
             // eslint-disable-next-line no-unused-vars

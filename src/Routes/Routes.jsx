@@ -23,7 +23,7 @@ const router = createBrowserRouter([
                 path:'/about/:id',
                 element:<PrivetRoute><About></About></PrivetRoute>,
                 // eslint-disable-next-line no-unused-vars
-                loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
+                loader: ({params}) => fetch(`https://chef-server-hazel.vercel.app/chef/${params.id}`)
             },
             {
                 path:'/login',

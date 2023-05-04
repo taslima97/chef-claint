@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -7,7 +7,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const Register = () => {
     // eslint-disable-next-line no-unused-vars
     const {createUser} = useContext(AuthContext);
-
+const [errore, setErrore] = useState('')
 const handelRegister = event =>{
     event.preventDefault()
     // eslint-disable-next-line no-unused-vars
@@ -20,8 +20,13 @@ const handelRegister = event =>{
     const email = form.email.value;
     // eslint-disable-next-line no-unused-vars
     const password = form.password.value;
-    console.log(name, photo, email, password);
 
+    if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password)){
+        errore('')
+        setErrore('Minimum eight characters, at least one uppercase letter, one lowercase letter and one number');
+        return ;
+    }
+    
     createUser(email, password)
     .then(result =>{
         const createdUser = result.user;
@@ -56,10 +61,10 @@ console.log(createdUser)
                 </Form.Group>
 
                 <Form.Text className="text-success">
-                    Well never share your email with anyone else.
+                    
                 </Form.Text> <br />
                 <Form.Text className="text-danger">
-                    Well never share your email with anyone else.
+                    {errore}
                 </Form.Text> <br />
 
                 <Button variant="warning" type="submit">

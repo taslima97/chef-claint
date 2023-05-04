@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 
@@ -25,6 +25,25 @@ const singIn = (email, password)=>{
     return signInWithEmailAndPassword(auth, email, password)
 }
 
+// eslint-disable-next-line no-unused-vars
+const provider = new GoogleAuthProvider()
+
+const goggleSignIn = () =>{
+    return signInWithPopup(auth, provider)
+}
+
+// eslint-disable-next-line no-unused-vars
+const gitProvider = new GithubAuthProvider();
+
+const gitSignIn =() =>{
+    return signInWithPopup(auth, gitProvider)
+}
+
+const userName = (name, photo) =>{
+return updateProfile (auth.createUser, name, photo)
+}
+
+
 const logOut = () =>{
     
     return signOut(auth)
@@ -48,7 +67,10 @@ setUser(loggedUser)
         loading,
         createUser,
        singIn,
-       logOut
+       logOut,
+       goggleSignIn,
+       gitSignIn,
+       userName
      
     }
 
