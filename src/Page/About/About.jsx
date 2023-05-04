@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Button, Card, Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 
 const About = () => {
@@ -12,10 +12,7 @@ const About = () => {
   const {id, name, image_url, details, num_likes, Recipe} = chefDta;
   // eslint-disable-next-line no-unused-vars
   const {recipe_name, ingredients, method, rating, img1, img2, img3} = Recipe;
-   // eslint-disable-next-line no-unused-vars
-   const ingInfo = ingredients;
-   // eslint-disable-next-line no-unused-vars
-   const metInfo = method;
+
     return (
         <div>
     <Container className='d-flex align-items-center justify-content-around mt-4 pt-4'>
@@ -28,7 +25,74 @@ const About = () => {
     <p>Like : {num_likes}</p>
     </div>
     </Container>
-    
+    <Container className='d-flex justify-content-between'>
+    <Card  style={{ margin: 12 }}>
+      <Card.Img variant="top" src={img1} />
+      <Card.Body>
+        <Card.Title>{recipe_name}</Card.Title>
+        <Card.Text className='d-flex justify-content-between'>
+         <div>
+         {
+           // eslint-disable-next-line no-unused-vars, react/jsx-key
+           ingredients.map(ingInfo=><p>{ingInfo}</p>) 
+          }
+         </div>
+         <div>
+            {
+                // eslint-disable-next-line no-unused-vars, react/jsx-key
+                method.map(metInfo =><p>{metInfo}</p>)
+            }
+         </div>
+        </Card.Text>
+        <p>{rating}</p>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+    </Card>
+    <Card  style={{ margin: 12 }}>
+      <Card.Img variant="top" src={img1} />
+      <Card.Body>
+        <Card.Title>{recipe_name}</Card.Title>
+        <Card.Text className='d-flex justify-content-between'>
+         <div>
+         {
+           // eslint-disable-next-line no-unused-vars, react/jsx-key
+           ingredients.map(ingInfo=><p>{ingInfo}</p>) 
+          }
+         </div>
+         <div>
+            {
+                // eslint-disable-next-line no-unused-vars, react/jsx-key
+                method.map(metInfo =><p>{metInfo}</p>)
+            }
+         </div>
+        </Card.Text>
+        <p>{rating}</p>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+    </Card>
+    <Card style={{ margin: 12 }}>
+      <Card.Img variant="top" src={img1} />
+      <Card.Body>
+        <Card.Title>{recipe_name}</Card.Title>
+        <Card.Text className='d-flex justify-content-between'>
+         <div>
+         {
+           // eslint-disable-next-line no-unused-vars, react/jsx-key
+           ingredients.map(ingInfo=><p>{ingInfo}</p>) 
+          }
+         </div>
+         <div>
+            {
+                // eslint-disable-next-line no-unused-vars, react/jsx-key
+                method.map(metInfo =><p>{metInfo}</p>)
+            }
+         </div>
+        </Card.Text>
+        <p>{rating}</p>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+    </Card>
+    </Container>
 
             
         </div>
