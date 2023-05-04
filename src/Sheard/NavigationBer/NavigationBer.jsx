@@ -7,7 +7,15 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const NavigationBer = () => {
 // eslint-disable-next-line no-unused-vars
-const {user} = useContext(AuthContext)
+const {user, logOut} = useContext(AuthContext);
+
+const handelLogOut =() =>{
+  logOut()
+  .then()
+  .catch(error=>{
+    console.log(error)
+  })
+}
 
     return (
         <div>
@@ -24,8 +32,10 @@ const {user} = useContext(AuthContext)
             <Nav>
               {user && <FaUserCircle style={{fontSize: 32}} title={user.displayName}></FaUserCircle>},
               {
-                user ? <Button className='bg-warning'>Logout</Button> : 
-                 <Link className=' text-black text-decoration-none' style={{ fontWeight: 'bold' }} to='/login'><Button className='bg-warning'>LogIn</Button></Link>
+                user ? <Button onClick={handelLogOut} className='bg-warning'>Logout</Button> : 
+                 <Link className=' text-black text-decoration-none' style={{ fontWeight: 'bold' }} to='/login'>
+                  <Button className='bg-warning'>Login</Button>
+                  </Link>
               }
             </Nav>
           </Navbar.Collapse>

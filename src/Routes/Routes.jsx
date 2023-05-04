@@ -5,6 +5,8 @@ import ErrorPage from "../Page/ErrorPage/ErrorPage";
 import About from "../Page/About/About";
 import Login from "../Page/Login/Login";
 import Register from "../Page/Rgister/Register";
+import PrivetRoute from "./PrivetRoute";
+import Blog from "../Page/Blog/Blog";
 
 // eslint-disable-next-line no-unused-vars
 const router = createBrowserRouter([
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/about/:id',
-                element:<About></About>,
+                element:<PrivetRoute><About></About></PrivetRoute>,
                 // eslint-disable-next-line no-unused-vars
                 loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
             },
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
             },
         ]
     }

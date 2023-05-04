@@ -1,14 +1,47 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 
 const Login = () => {
+    // eslint-disable-next-line no-unused-vars
+    const { singIn} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location)
+    // eslint-disable-next-line no-unused-vars
+    const from = location.state?.from?.pathname || '/';
+const handelSingIn = event =>{
+    event.preventDefault();
+     const form = event.target;
+     // eslint-disable-next-line no-undef
+     const email = form.email.value;
+     // eslint-disable-next-line no-unused-vars, no-undef
+     const password = form.password.value;
+     console.log( email, password);
+
+     singIn(email, password)
+     // eslint-disable-next-line no-unused-vars
+     .then(result=>{
+        // eslint-disable-next-line no-undef
+       const loggedUser = result.user;
+       navigate(from, {replace:true})
+        // eslint-disable-next-line no-undef
+        console.log(loggedUser)
+     })
+     
+     .catch(error=>{
+        console.log(error)
+     })
+
+}
+
     return (
-        <Container>
+        <Container className='mx-auto' style={{ width: 600 }}>
             <h2 className='text-center'>Please login</h2>
-            <Form className='mx-auto' style={{ width: 600 }}>
+            <Form onSubmit={handelSingIn}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" name='email' placeholder="Enter email" required/>
