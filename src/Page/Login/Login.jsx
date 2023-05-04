@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 
 const Login = () => {
@@ -89,8 +90,8 @@ const Login = () => {
                     Login
                 </Button>
                 <p>Do not have an account please  <Link to='/register'>Register</Link></p>
-                <Button onClick={handelGoggle}>logIn from goggle</Button>
-                <Button onClick={handelGithub}>logIn from goggle</Button>
+                <Button className='me-4' onClick={handelGoggle}> <FaGoogle className='mb-1 me-2'></FaGoogle>logIn from goggle</Button>
+                <Button onClick={handelGithub}> <FaGithub className='mb-1 me-2'></FaGithub>logIn from Github</Button>
             </Form>
         </Container>
     );

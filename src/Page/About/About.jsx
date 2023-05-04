@@ -4,6 +4,9 @@ import { Button, Card, Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import {  ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
 
 const About = () => {
 
@@ -49,6 +52,7 @@ const About = () => {
               </div>
             </Card.Text>
             <div className='d-flex align-items-center justify-content-between'>
+            <Rating style={{ maxWidth: 150 }} value={rating} readOnly />
             <p>{rating}</p>
             <Button onClick={notify} variant="primary">Favorite</Button>
             </div>
@@ -75,6 +79,7 @@ const About = () => {
               </div>
             </Card.Text>
             <div className='d-flex align-items-center justify-content-between'>
+            <Rating style={{ maxWidth: 150 }} value={rating} readOnly />
             <p>{rating}</p>
             <Button onClick={notify} variant="primary">Favorite</Button>
             </div>
@@ -101,6 +106,7 @@ const About = () => {
               </div>
             </Card.Text>
             <div className='d-flex align-items-center justify-content-between'>
+            <Rating style={{ maxWidth: 150 }} value={rating} readOnly />
             <p>{rating}</p>
             <Button onClick={notify} variant="primary">Favorite</Button>
           
