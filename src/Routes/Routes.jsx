@@ -7,6 +7,7 @@ import Login from "../Page/Login/Login";
 import Register from "../Page/Rgister/Register";
 import PrivetRoute from "./PrivetRoute";
 import Blog from "../Page/Blog/Blog";
+import Contact from "../Page/Contact/Contact";
 
 // eslint-disable-next-line no-unused-vars
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path:'/blog',
                 element:<Blog></Blog>
+            },
+            {
+                path:'/contact',
+                element:<Contact></Contact>
             },
         ]
     }
